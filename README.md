@@ -1,24 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bootstrap 4 ruby gem for Ruby on Rails
 
-Things you may want to cover:
+Installation
 
-* Ruby version
+* Ruby on Rails 4+ 
 
-* System dependencies
+### a. Ruby on Rails
 
-* Configuration
+Add `bootstrap` to your Gemfile:
 
-* Database creation
+```ruby
+gem 'bootstrap', '~> 4.0.0.alpha6'
+```
 
-* Database initialization
+Ensure that `sprockets-rails` is at least v2.3.2.
 
-* How to run the test suite
+`bundle install` and restart your server to make the files available through the pipeline.
 
-* Services (job queues, cache servers, search engines, etc.)
+Import Bootstrap styles in `app/assets/stylesheets/application.scss`:
 
-* Deployment instructions
+```scss
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+```
 
-* ...
+Make sure the file has `.scss` extension (or `.sass` for Sass syntax). If you have just generated a new Rails app,
+it may come with a `.css` file instead. If this file exists, it will be served instead of Sass, so rename it:
+
+```console
+$ mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
+```
+
+Require in `app/assets/javascripts/application.js`:
+
+```js
+//= require jquery
+//= require tether
+//= require bootstrap-sprockets
+//= require bootstrap
+```
+
+`bundle install` and restart your server to make the files available through the pipeline.
